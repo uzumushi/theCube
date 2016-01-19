@@ -5,7 +5,9 @@
 LIGHTPATTERN monopattern;
 
 void MONO::GetStats(){
-  for(int num=0;num!=1;num=0){
+  int num=0;
+  while(num!=1){
+    num=0;
     stats=random(0x7fff+1);
     for(int i=0;i<15;i++){
       num+=(stats>>i)&MASK;
@@ -14,7 +16,7 @@ void MONO::GetStats(){
   monopattern.Set(stats);
 }
 
-void Light(){
+void MONO::Light(){
   monopattern.Light();
 }
 

@@ -10,6 +10,7 @@ public:
   void Set(short);
   
 private:
+  void Off();
   bool blue1;
   bool blue2;
   bool blue3;

@@ -6,6 +6,7 @@
 #include "randomcontroller.h"
 #include "monogcontroller.h"
 #include "sequencecontroller.h"
+#include "monocontroller.h"
 
 void pinSetup();
 
@@ -13,6 +14,7 @@ DICECONTROLLER dicecnt;
 SPINCONTROLLER spincnt;
 RANDOMCONTROLLER randcnt;
 MONO_G_CONTROLLER mongcnt;
+MONOCONTROLLER monocnt;
 SEQUENCECONTROLLER sequcnt;
 
 void setup() {
@@ -24,17 +26,19 @@ void loop() {
   int funcid;
   static int beforeid=-1;
   bool resetflag;
+  static MONO func;
+  
   funcid=MGREADER::Read();
   resetflag= funcid==beforeid ? false:true;
-  beforeid=funcid;
+  beforeid=funcid;  
   
   switch(funcid){
-    case ID_1:mongcnt.Exec(resetflag);break;
+    case ID_1:monocnt.Exec(resetflag);break;
     case ID_2:dicecnt.Exec(resetflag);break;
     case ID_3:spincnt.Exec(resetflag);break;
     case ID_4:randcnt.Exec(resetflag);break;
     case ID_5:sequcnt.Exec(resetflag);break;
-    case ID_6:break;
+    case ID_6:mongcnt.Exec(resetflag);break;
   }
 }
 

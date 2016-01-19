@@ -5,7 +5,7 @@ FUNCTION::FUNCTION(){
 }
 
 void FUNCTION::Do(bool resetflag){
-  if(!resetflag)stats=0;
+  if(resetflag)stats=0;
   GetStats();
   Light();
 }

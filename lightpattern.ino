@@ -30,6 +30,8 @@ void LIGHTPATTERN::Init(bool flag){
 }
 
 void LIGHTPATTERN::Light(){
+  Off();
+  
   if(blue1)digitalWrite(BLUE_1,HIGH);
   if(blue2)digitalWrite(BLUE_2,HIGH);
   if(blue3)digitalWrite(BLUE_3,HIGH);
@@ -65,3 +67,20 @@ void LIGHTPATTERN::Set(short flags){
   color5_R=(flags>>14)&MASK;
 }
 
+void LIGHTPATTERN::Off(){
+  digitalWrite(BLUE_1,LOW);
+  digitalWrite(BLUE_2,LOW);
+  digitalWrite(BLUE_3,LOW);
+  digitalWrite(BLUE_4,LOW);
+  digitalWrite(COLOR_1_B,LOW);
+  digitalWrite(COLOR_1_G,LOW);
+  digitalWrite(COLOR_2_B,LOW);
+  digitalWrite(COLOR_2_G,LOW);
+  digitalWrite(COLOR_3_B,LOW);
+  digitalWrite(COLOR_3_G,LOW);
+  digitalWrite(COLOR_4_B,LOW);
+  digitalWrite(COLOR_4_G,LOW);
+  digitalWrite(COLOR_5_B,LOW);
+  digitalWrite(COLOR_5_G,LOW);
+  digitalWrite(COLOR_5_R,LOW);
+}

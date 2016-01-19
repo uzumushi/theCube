@@ -14,10 +14,15 @@ LIGHTPATTERN monogpattern4(PAT_4);
 
 void MONO_G::GetStats(){
     stats++;
-    stats%=MONO_G_MAX;
+    stats=stats%MONO_G_MAX;
 }
 
 void MONO_G::Light(){
+  digitalWrite(BLUE_1,LOW);
+  digitalWrite(BLUE_2,LOW);
+  digitalWrite(BLUE_3,LOW);
+  digitalWrite(BLUE_4,LOW);
+
   switch(stats){
     case 0:monogpattern1.Light();break;
     case 1:monogpattern2.Light();break;
